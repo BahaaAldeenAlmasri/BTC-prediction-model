@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>30</y>
+      <width>1181</width>
+      <height>731</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab_1">
+     <attribute name="title">
+      <string>Training dataset</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget_train_data">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>1151</width>
+        <height>681</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Coffecinet</string>
+     </attribute>
+     <widget class="QListWidget" name="listWidget">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>1131</width>
+        <height>681</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Prediction dataset</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget_pred_data">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>1151</width>
+        <height>681</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>Presdiction result</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget_pred_result">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>1151</width>
+        <height>681</height>
+       </rect>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuLoad_training_dataset">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionLoad_training_dataset"/>
+    <addaction name="actionUpdate_training_dataset"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave_model"/>
+    <addaction name="actionImport_model"/>
+    <addaction name="separator"/>
+   </widget>
+   <widget class="QMenu" name="menuPreprocessing">
+    <property name="title">
+     <string>Preprocessing</string>
+    </property>
+    <widget class="QMenu" name="menuData_cleaning">
+     <property name="title">
+      <string>Data cleaning</string>
+     </property>
+     <addaction name="actionGet_data_types"/>
+     <addaction name="actionChange_data_types"/>
+     <addaction name="separator"/>
+     <addaction name="actionDelete_feature"/>
+     <addaction name="actionDelete_row"/>
+     <addaction name="actionDelete_duplicate"/>
+     <addaction name="actionDelete_missing_data"/>
+     <addaction name="actionPerform_data_impuration"/>
+    </widget>
+    <widget class="QMenu" name="menuData_transformation">
+     <property name="title">
+      <string>Data transformation</string>
+     </property>
+     <addaction name="actionStandard_scaler"/>
+     <addaction name="actionMin_Max_scaler"/>
+     <addaction name="actionMaxABS_scaler"/>
+     <addaction name="actionRobust_scaler"/>
+     <addaction name="actionnormalization_z_score"/>
+     <addaction name="actionNormal_disturbution"/>
+    </widget>
+    <widget class="QMenu" name="menuDimension_reduction">
+     <property name="title">
+      <string>Dimension reduction</string>
+     </property>
+     <addaction name="actionPCA"/>
+     <addaction name="actionKPCA"/>
+     <addaction name="actionLDA"/>
+     <addaction name="actionSVD"/>
+     <addaction name="actionT_SNE"/>
+     <addaction name="actionNMF"/>
+    </widget>
+    <widget class="QMenu" name="menuExploratory_data_analysis">
+     <property name="title">
+      <string>Exploratory data analysis</string>
+     </property>
+     <addaction name="actionUnivariate_analysis"/>
+     <addaction name="actionMultivariate_analysis"/>
+    </widget>
+    <addaction name="menuData_cleaning"/>
+    <addaction name="menuData_transformation"/>
+    <addaction name="menuDimension_reduction"/>
+    <addaction name="menuExploratory_data_analysis"/>
+   </widget>
+   <widget class="QMenu" name="menuModels">
+    <property name="title">
+     <string>Model</string>
+    </property>
+    <widget class="QMenu" name="menuRegression">
+     <property name="title">
+      <string>Regression</string>
+     </property>
+     <widget class="QMenu" name="menuLinear_models">
+      <property name="title">
+       <string>Linear models</string>
+      </property>
+      <addaction name="actionSimple_linear_regression"/>
+      <addaction name="actionLasso_regression"/>
+      <addaction name="actionRidge_regression"/>
+      <addaction name="actionBayesian_ridge"/>
+      <addaction name="actionLars"/>
+      <addaction name="actionElastic_net"/>
+      <addaction name="actionlinear_SVR"/>
+     </widget>
+     <widget class="QMenu" name="menuNon_linear_models">
+      <property name="title">
+       <string>Non-linear models</string>
+      </property>
+      <addaction name="actionSVR"/>
+      <addaction name="actionKNN"/>
+      <addaction name="actionDecision_tree"/>
+     </widget>
+     <addaction name="menuLinear_models"/>
+     <addaction name="menuNon_linear_models"/>
+    </widget>
+    <widget class="QMenu" name="menuClassification">
+     <property name="title">
+      <string>Classification</string>
+     </property>
+     <addaction name="actionLogistic_regression"/>
+     <addaction name="actionDecision_tree_2"/>
+     <addaction name="actionSVC"/>
+     <addaction name="actionKNN_2"/>
+     <addaction name="actionNaive_Bayes"/>
+    </widget>
+    <addaction name="menuClassification"/>
+    <addaction name="menuRegression"/>
+   </widget>
+   <widget class="QMenu" name="menuEvaluation_Tunning">
+    <property name="title">
+     <string>Tunning</string>
+    </property>
+    <widget class="QMenu" name="menuEnsemble_learning">
+     <property name="title">
+      <string>Ensemble learning</string>
+     </property>
+     <widget class="QMenu" name="menuCustom">
+      <property name="title">
+       <string>Custom</string>
+      </property>
+      <addaction name="actionBagging"/>
+      <addaction name="actionVoting"/>
+      <addaction name="actionStacking"/>
+     </widget>
+     <addaction name="actionADA_boosting"/>
+     <addaction name="actionRandom_forset"/>
+     <addaction name="actionGradient_boosting"/>
+     <addaction name="actionXGBoosting"/>
+     <addaction name="menuCustom"/>
+    </widget>
+    <addaction name="actionCross_validation"/>
+    <addaction name="separator"/>
+    <addaction name="actionGrid_search"/>
+    <addaction name="actionRandomized_search"/>
+    <addaction name="menuEnsemble_learning"/>
+   </widget>
+   <widget class="QMenu" name="menuPridict">
+    <property name="title">
+     <string>Predict</string>
+    </property>
+    <addaction name="actionPredict"/>
+    <addaction name="separator"/>
+    <addaction name="actionLoad_prediction_dataset"/>
+    <addaction name="actionSave_prediction_result"/>
+   </widget>
+   <addaction name="menuLoad_training_dataset"/>
+   <addaction name="menuPreprocessing"/>
+   <addaction name="menuModels"/>
+   <addaction name="menuEvaluation_Tunning"/>
+   <addaction name="menuPridict"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionLoad_training_dataset">
+   <property name="text">
+    <string>Load training dataset</string>
+   </property>
+  </action>
+  <action name="actionSave_model">
+   <property name="text">
+    <string>Save model</string>
+   </property>
+  </action>
+  <action name="actionImport_model">
+   <property name="text">
+    <string>Import model</string>
+   </property>
+  </action>
+  <action name="actionGet_data_types">
+   <property name="text">
+    <string>Get data types</string>
+   </property>
+  </action>
+  <action name="actionChange_data_types">
+   <property name="text">
+    <string>Change data type</string>
+   </property>
+  </action>
+  <action name="actionDelete_feature">
+   <property name="text">
+    <string>Delete feature</string>
+   </property>
+  </action>
+  <action name="actionDelete_row">
+   <property name="text">
+    <string>Delete row</string>
+   </property>
+  </action>
+  <action name="actionDelete_duplicate">
+   <property name="text">
+    <string>Delete duplicate</string>
+   </property>
+  </action>
+  <action name="actionDelete_missing_data">
+   <property name="text">
+    <string>Delete missing data</string>
+   </property>
+  </action>
+  <action name="actionPerform_data_impuration">
+   <property name="text">
+    <string>Data imputation</string>
+   </property>
+  </action>
+  <action name="actionStandard_scaler">
+   <property name="text">
+    <string>Standard scaler</string>
+   </property>
+  </action>
+  <action name="actionMin_Max_scaler">
+   <property name="text">
+    <string>Min-Max scaler</string>
+   </property>
+  </action>
+  <action name="actionMaxABS_scaler">
+   <property name="text">
+    <string>MaxABS scaler</string>
+   </property>
+  </action>
+  <action name="actionRobust_scaler">
+   <property name="text">
+    <string>Robust scaler</string>
+   </property>
+  </action>
+  <action name="actionnormalization_z_score">
+   <property name="text">
+    <string>Normalization (z-score)</string>
+   </property>
+  </action>
+  <action name="actionNormal_disturbution">
+   <property name="text">
+    <string>Normal disturbution</string>
+   </property>
+  </action>
+  <action name="actionPCA">
+   <property name="text">
+    <string>PCA</string>
+   </property>
+  </action>
+  <action name="actionKPCA">
+   <property name="text">
+    <string>KPCA</string>
+   </property>
+  </action>
+  <action name="actionLDA">
+   <property name="text">
+    <string>LDA</string>
+   </property>
+  </action>
+  <action name="actionSVD">
+   <property name="text">
+    <string>SVD</string>
+   </property>
+  </action>
+  <action name="actionT_SNE">
+   <property name="text">
+    <string>T-SNE</string>
+   </property>
+  </action>
+  <action name="actionNMF">
+   <property name="text">
+    <string>NMF</string>
+   </property>
+  </action>
+  <action name="actionUnivariate_analysis">
+   <property name="text">
+    <string>Univariate analysis</string>
+   </property>
+  </action>
+  <action name="actionMultivariate_analysis">
+   <property name="text">
+    <string>Multivariate analysis</string>
+   </property>
+  </action>
+  <action name="actionSimple_linear_regression">
+   <property name="text">
+    <string>Simple linear regression</string>
+   </property>
+  </action>
+  <action name="actionLasso_regression">
+   <property name="text">
+    <string>Lasso </string>
+   </property>
+  </action>
+  <action name="actionRidge_regression">
+   <property name="text">
+    <string>Ridge </string>
+   </property>
+  </action>
+  <action name="actionBayesian_ridge">
+   <property name="text">
+    <string>Bayesian ridge</string>
+   </property>
+  </action>
+  <action name="actionLars">
+   <property name="text">
+    <string>Lars</string>
+   </property>
+  </action>
+  <action name="actionElastic_net">
+   <property name="text">
+    <string>Elastic net</string>
+   </property>
+  </action>
+  <action name="actionlinear_SVR">
+   <property name="text">
+    <string>Linear SVR</string>
+   </property>
+  </action>
+  <action name="actionSVR">
+   <property name="text">
+    <string>SVR</string>
+   </property>
+  </action>
+  <action name="actionDecision_tree">
+   <property name="text">
+    <string>Decision tree</string>
+   </property>
+  </action>
+  <action name="actionKNN">
+   <property name="text">
+    <string>KNN</string>
+   </property>
+  </action>
+  <action name="actionLogistic_regression">
+   <property name="text">
+    <string>Logistic regression</string>
+   </property>
+  </action>
+  <action name="actionDecision_tree_2">
+   <property name="text">
+    <string>Decision tree</string>
+   </property>
+  </action>
+  <action name="actionSVC">
+   <property name="text">
+    <string>SVC</string>
+   </property>
+  </action>
+  <action name="actionKNN_2">
+   <property name="text">
+    <string>KNN</string>
+   </property>
+  </action>
+  <action name="actionNaive_Bayes">
+   <property name="text">
+    <string>Naive Bayes</string>
+   </property>
+  </action>
+  <action name="actionCross_validation">
+   <property name="text">
+    <string>Cross validation</string>
+   </property>
+  </action>
+  <action name="actionGrid_search">
+   <property name="text">
+    <string>Grid search</string>
+   </property>
+  </action>
+  <action name="actionRandomized_search">
+   <property name="text">
+    <string>Randomized search</string>
+   </property>
+  </action>
+  <action name="actionADA_boosting">
+   <property name="text">
+    <string>ADA boosting</string>
+   </property>
+  </action>
+  <action name="actionRandom_forset">
+   <property name="text">
+    <string>Random forest</string>
+   </property>
+  </action>
+  <action name="actionGradient_boosting">
+   <property name="text">
+    <string>Gradient boosting</string>
+   </property>
+  </action>
+  <action name="actionXGBoosting">
+   <property name="text">
+    <string>XGBoosting</string>
+   </property>
+  </action>
+  <action name="actionBagging">
+   <property name="text">
+    <string>Bagging</string>
+   </property>
+  </action>
+  <action name="actionVoting">
+   <property name="text">
+    <string>Voting</string>
+   </property>
+  </action>
+  <action name="actionStacking">
+   <property name="text">
+    <string>Stacking</string>
+   </property>
+  </action>
+  <action name="actionPredict">
+   <property name="text">
+    <string>Predict</string>
+   </property>
+  </action>
+  <action name="actionUpdate_training_dataset">
+   <property name="text">
+    <string>Update training dataset</string>
+   </property>
+  </action>
+  <action name="actionLoad_prediction_dataset">
+   <property name="text">
+    <string>Load prediction dataset</string>
+   </property>
+  </action>
+  <action name="actionSave_prediction_result">
+   <property name="text">
+    <string>Save prediction result</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
